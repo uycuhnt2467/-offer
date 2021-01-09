@@ -27,7 +27,7 @@ class Solution():
         while self.stackR:
             self.stackS.append(self.stackR.pop())
     
-class Solution():
+class Solution2():
     
     def __init__(self):
         self.queue1 = []
@@ -44,5 +44,5 @@ class Solution():
         self.queue1.pop()
         while self.queue2:
             self.queue1.append(self.queue2.pop())
-        self.queue1.append(val)F
+        
         
