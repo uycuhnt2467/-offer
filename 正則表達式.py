@@ -9,6 +9,8 @@ Created on Mon Jan 11 09:44:25 2021
 # .(any one character) 和 *(0-many)
 class Solution():
     def re(self, pattern, string):
+        if not pattern or not string:
+            return False
         if len(pattern) == 0:
             return False
         if pattern[0] == "*":
@@ -70,3 +72,5 @@ print(sol.re("b..", "aaa"))
 print(sol.re("b..", ""))
 print(sol.re("", "aaa"))
 print(sol.re("....", "aaa"))
+print(sol.re(None, "aaa"))
+print(sol.re("..", None))
