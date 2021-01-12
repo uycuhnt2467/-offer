@@ -44,8 +44,7 @@ class Solution:
             else:
                 # i.next_.val == j.val
                 i = i.next_
-                
-                
+
         if i.next_ == None and j.next_ == None:
             i.next_ = j
             return start
@@ -67,6 +66,20 @@ class Solution:
             if j != None:
                 i.next_ = j
             return start
+    def merge_recursive(self, node1, node2):
+        if node1 == None:
+            return node2
+        elif node2 == None:
+            return node1
+        start = None
+        if node1.val < node2.val:
+            start = node1
+            start.next_ = self.merge_recursive(node1.next_, node2)
+        else:
+            start = node2
+            start.next_ = self.merge_recursive(node1, node2.next_)
+        return start
+    
     def printNode(self, node):
         while node != None:
             print(node.val)
@@ -86,4 +99,17 @@ node8 = Node(1, node7)
 sol = Solution()
 ans = sol.merge(node8, node4)
 
+print("--------------------------------------")
+
 sol.printNode(ans)
+node1 = Node(8, None)
+node2 = Node(5, node1)
+node3 = Node(4, node2)
+node4 = Node(2, node3)
+
+node5 = Node(9, None)
+node6 = Node(5, node5)
+node7 = Node(3, node6)
+node8 = Node(1, node7)
+ans2 = sol.merge_recursive(node8, node4)
+sol.printNode(ans2)
