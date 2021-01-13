@@ -23,6 +23,21 @@ class Solution:
         root.left = root.right
         root.right = temp
         return root
+    
+    def reverseTree_iterative(self, root):
+        stack = list()
+        stack.append(root)
+        while stack:
+            cur = stack.pop()
+            temp = cur.left
+            cur.left = cur.right
+            cur.right = temp
+            if cur.left != None:
+                stack.append(cur.left)
+            if cur.right != None:
+                stack.append(cur.right)
+        return root
+    
     def inorderTraverse(self, root):
         if not root:
             return 
@@ -39,4 +54,14 @@ c = TreeNode(2, a, b)
 sol = Solution()
 sol.inorderTraverse(c)        
 sol.reverseTree(c)
+sol.inorderTraverse(c)
+
+print("-----------")
+a = TreeNode(1,None, None)
+b = TreeNode(3,None, None)
+c = TreeNode(2, a, b)
+
+sol = Solution()
+sol.inorderTraverse(c)        
+sol.reverseTree_iterative(c)
 sol.inorderTraverse(c)
