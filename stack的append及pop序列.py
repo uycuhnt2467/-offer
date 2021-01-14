@@ -45,10 +45,39 @@ class Solution():
             if found == False:
                 return False
         return True
+    def is_pop_order_ans(self, nums1, nums2):
+        
+        ans = False
+        
+        if nums1 and nums2 and len(nums1) == len(nums2) and len(nums1) > 0:
+            i = 0
+            j = 0
+            stack = list()
+            while j < len(nums2):
+                while len(stack) == 0 or stack[-1] != nums2[j]:
+                    if i == len(nums1):
+                        break
+                    stack.append(nums1[i])
+                    i += 1
+                
+                if stack[-1] != nums2[j]:
+                    break
+                
+                stack.pop()
+                j += 1
+            if len(stack) == 0 and j == len(nums2) :
+                ans = True
+        return ans
+            
 
 sol = Solution()
 nums1 = [1, 2, 3, 4, 5]
 nums2 = [1, 4, 3, 5, 2]
 
 print(sol.is_pop_order(nums1, nums2))
+
+nums1 = [1, 2, 3, 4, 5]
+nums2 = [1, 4, 3, 5, 2]
+
+print(sol.is_pop_order_ans(nums1, nums2))
         
