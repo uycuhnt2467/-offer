@@ -52,10 +52,11 @@ class Solution:
         if node == None:
             return 
         
-        dequeue = list()
+        dequeue = list() # can be stack
         stack = list()
         dequeue.append(node)
         reverse = False
+        
         while dequeue or stack:
             print_string = ""
             if not reverse:
