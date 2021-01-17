@@ -13,7 +13,16 @@ class Node:
         self.right = right # larger
 
 
-class Solution:    
+class Solution:
+    
+    def convert(self, node):
+        pass
+    
+    def convert_node(self, node):
+        pass
+    
+    
+    
     def traverse(self, node):
         if not node:
             return None
