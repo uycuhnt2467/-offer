@@ -36,6 +36,7 @@ class Solution:
                         dp[0] = matrix[0]
                     else:
                         dp[row_num * 4] = dp[(row_num-1) * 4] + matrix[row_num * 4]
+        # 優化方式: 只用一維陣列保留cols最大值。
         return dp[-1]
 
 sol = Solution()
