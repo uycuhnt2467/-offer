@@ -12,7 +12,7 @@ Created on Sat Jan 23 23:03:50 2021
 class Solution:
     def longest_substring_without_duplication(self, strings):
         # brutal: 找所有子字串、判斷有無重複-> O(n**3)
-        # dp -> o(n**2)
+        # 優化1: dp -> o(n**2)
         dp = [0] * len(strings)
         check_duplicate = [0] * len(strings)
         if not strings:
@@ -30,6 +30,10 @@ class Solution:
                 prev -= 1
             dp[i] = max(dp[i-1], count)
         return dp[-1]
+    def longest_substring_without_duplication(self, strings):
+        # 優化2:
+        pass
+        
     
 
 sol = Solution()
